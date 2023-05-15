@@ -8,14 +8,25 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.Locale;
 
 public class listitems extends AppCompatActivity {
+    FirebaseAuth auth;
+    ImageButton button;
+    TextView textView;
+    FirebaseUser user;
+    String email;
+    int atIndex;
+    String emailWithoutDomain;
 
     private Button startTimerButton;
     private CountDownTimer countDownTimer;
@@ -34,7 +45,28 @@ ImageView gifImageView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listitems);
 
+        auth = FirebaseAuth.getInstance();
+        button = findViewById(R.id.btnLogout);
+        textView = findViewById(R.id.user);
+        user = auth.getCurrentUser();
 
+        if (user==null) {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            email = user.getEmail();
+            atIndex = email.indexOf('@'); // find the index of the "@" character
+            emailWithoutDomain = email.substring(0, atIndex); // extract the email address part
+            textView.setText(emailWithoutDomain); // set the text of the TextView to the email address without the domain
+        }
+
+        button.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
         // initialize variables
         startTimerButton = findViewById(R.id.start_timer_button);

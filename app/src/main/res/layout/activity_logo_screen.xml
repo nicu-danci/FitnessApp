@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LogoScreen">
+    tools:context=".LogoScreen"
+    android:background="@drawable/background">
 
     <ImageView
         android:id="@+id/logo"
@@ -20,12 +21,12 @@
         android:id="@+id/textLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home Workout"
 
+        android:layout_marginTop="16dp"
+        android:text="Home Workout"
         android:textColor="#040303"
-        android:textSize="35dp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Declare  views
     FirebaseAuth auth;
     ImageButton button;
     TextView textView;
@@ -60,15 +61,21 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        ConstraintLayout myLayout4 = findViewById(R.id.nutrition);
+        ConstraintLayout myLayout4 = findViewById(R.id.contactUs);
         myLayout4.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ContactActivity.class);
+            startActivity(intent);
+        });
+
+        ConstraintLayout myLayout3 = findViewById(R.id.workoutSchedule);
+        myLayout3.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, ScheduleActivity.class);
             startActivity(intent);
         });
 
-        ConstraintLayout myLayout3 = findViewById(R.id.yoga);
-        myLayout3.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, ContactActivity.class);
+        ConstraintLayout myLayout2 = findViewById(R.id.nutrition);
+        myLayout2.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, NutritionActivity.class);
             startActivity(intent);
         });
     }

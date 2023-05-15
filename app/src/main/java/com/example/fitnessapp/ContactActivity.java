@@ -1,14 +1,19 @@
 package com.example.fitnessapp;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Properties;
 
@@ -22,17 +27,51 @@ import javax.mail.internet.MimeMessage;
 
 public class ContactActivity extends AppCompatActivity {
 
-    // Declare the views
+    // Declare  views
     private EditText editTextEmail;
     private EditText editTextSubject;
     private EditText editTextMessage;
     private Button buttonSend;
+
+    FirebaseAuth auth;
+    ImageButton button;
+    TextView textView;
+    FirebaseUser user;
+    String email;
+    int atIndex;
+    String emailWithoutDomain;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
+
+        // Get the Firebase authentication instance and the current user
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
+
+        button = findViewById(R.id.btnLogout);
+        textView = findViewById(R.id.user);
+
+        // If there is no user signed in, redirect to the login activity
+        if (user==null) {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            email = user.getEmail();
+            atIndex = email.indexOf('@'); // find the index of the "@" character
+            emailWithoutDomain = email.substring(0, atIndex); // extract the email address part
+            textView.setText(emailWithoutDomain); // set the text of the TextView to the email address without the domain
+        }
+
+        button.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
         // Initialize the views
         editTextEmail = findViewById(R.id.editTextEmail);

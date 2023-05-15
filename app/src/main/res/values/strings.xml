@@ -34,4 +34,14 @@
     <string name="register">Register</string>
     <string name="click_to_login">Click to login</string>
     <string name="click_to_register">Click to register</string>
+    <string name="enter_workout_time_in_seconds">Enter workout time in seconds</string>
+    <string name="start">Start</string>
+    <string name="set_a_reminder_for_your_next_workout_session">Set a reminder for your next workout session.</string>
+    <string name="set_notification_time">Set Notification Time</string>
+    <string name="contact_us">Contact us</string>
+    <string name="email_address">Email Address</string>
+    <string name="subject">Subject</string>
+    <string name="message">Message</string>
+    <string name="send">Send</string>
+    <string name="name">Name</string>
 </resources>

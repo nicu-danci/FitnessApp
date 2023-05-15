@@ -8,12 +8,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 
 public class DayThree3Activity extends AppCompatActivity {
+    // Declare  views
+
+    FirebaseAuth auth;
+    ImageButton button;
+    TextView textView;
+    FirebaseUser user;
+    String email;
+    int atIndex;
+    String emailWithoutDomain;
 
     ListView listView;
     String [] itemnames = {"Goblet squat","Step-ups", "Single leg deadlifts","Plank to downward dog ","Prone X"};
@@ -34,6 +47,29 @@ public class DayThree3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_one3);
+
+        auth = FirebaseAuth.getInstance();
+        button = findViewById(R.id.btnLogout);
+        textView = findViewById(R.id.user);
+        user = auth.getCurrentUser();
+
+        if (user==null) {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            email = user.getEmail();
+            atIndex = email.indexOf('@'); // find the index of the "@" character
+            emailWithoutDomain = email.substring(0, atIndex); // extract the email address part
+            textView.setText(emailWithoutDomain); // set the text of the TextView to the email address without the domain
+        }
+
+        button.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
         listView = findViewById(R.id.activity_day_one_3);
 

@@ -6,42 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".listitems">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="@color/black"
-        android:textAlignment="textEnd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="Home Workout"
-        app:titleTextColor="@color/white" />
+    <include
+        android:id="@+id/include3"
+        layout="@layout/toolbar" />
 
     <TextView
         android:id="@+id/listitems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:layout_marginTop="100dp"
         android:text="@string/push_ups2"
-        android:textSize="25dp"
+        android:textAllCaps="true"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="25sp"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.064"
-        android:textAllCaps="true"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/pushups"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="@+id/include3"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/description"
@@ -63,11 +56,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:src="@drawable/pushup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description"
-        android:src="@drawable/pushup"
-        />
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/list_desc"
@@ -77,7 +70,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/description"
         android:textColor="@color/black"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.444"
@@ -89,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Start workout"
+        android:text="@string/start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,11 +93,17 @@
         android:id="@+id/time_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:hint="Enter workout time in seconds"
+        android:layout_marginEnd="16dp"
+        android:autofillHints=""
+        android:hint="@string/enter_workout_time_in_seconds"
         android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/start_timer_button"
-        tools:layout_editor_absoluteX="6dp" />
+        tools:ignore="VisualLintTextFieldSize" />
 
     <TextView
         android:id="@+id/countdown_text_view"
@@ -115,7 +114,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time_input"
-        android:textSize="20dp"/>
+        android:textSize="20sp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

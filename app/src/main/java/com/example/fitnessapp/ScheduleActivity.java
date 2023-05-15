@@ -13,11 +13,23 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Calendar;
 
 public class ScheduleActivity extends AppCompatActivity {
+    FirebaseAuth auth;
+    ImageButton button;
+    TextView textView;
+    FirebaseUser user;
+    String email;
+    int atIndex;
+    String emailWithoutDomain;
 
     private static final int REQUEST_CODE = 1;
     private static final String[] PERMISSIONS = {android.Manifest.permission.RECEIVE_BOOT_COMPLETED};
@@ -28,8 +40,34 @@ public class ScheduleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
+
+        auth = FirebaseAuth.getInstance();
+        button = findViewById(R.id.btnLogout);
+        textView = findViewById(R.id.user);
+        user = auth.getCurrentUser();
+
+        if (user==null) {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            email = user.getEmail();
+            atIndex = email.indexOf('@'); // find the index of the "@" character
+            emailWithoutDomain = email.substring(0, atIndex); // extract the email address part
+            textView.setText(emailWithoutDomain); // set the text of the TextView to the email address without the domain
+        }
+
+        button.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
         createNotificationChannel();
-        Button button = findViewById(R.id.button);
+        Button button = findViewById(R.id.time_picker_button);
+
+
 
         button.setOnClickListener(v -> {
             // Prompt user to select notification time

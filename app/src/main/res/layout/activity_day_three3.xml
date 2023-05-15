@@ -7,17 +7,9 @@
     tools:context=".DayThree3Activity"
     android:background="@drawable/background">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="@color/black"
-        android:textAlignment="textEnd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="Home Workout"
-        app:titleTextColor="@color/white" />
+    <include layout="@layout/toolbar"/>
+
+
 
     <ListView
         android:id="@+id/activity_day_two_3"

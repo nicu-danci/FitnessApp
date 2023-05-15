@@ -13,8 +13,9 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:scrollbars="none"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,9 +28,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/chest"
+                android:background="@drawable/workout"
                 app:layout_constraintTop_toTopOf="parent"
 
                 >
@@ -56,20 +57,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <Button
-                    android:id="@+id/w3dbtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/btn"
-                    android:text="@string/begin"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-                    app:layout_constraintVertical_bias="0.87"
-                    tools:ignore="DuplicateSpeakableTextCheck" />
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -82,11 +70,11 @@
                 app:layout_constraintTop_toBottomOf="@id/workout3days">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/workout5days"
+                    android:id="@+id/nutrition"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/back"
+                    android:background="@drawable/nutrition"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -101,7 +89,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5.0dp"
-                            android:text="Workout plan - 5 days"
+                            android:text="Nutrition"
                             android:textColor="@color/white"
                             android:textSize="20sp"
                             android:textStyle="bold"
@@ -111,19 +99,7 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <Button
-                        android:id="@+id/w5dbtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="@drawable/btn"
-                        android:text="@string/begin"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-                        app:layout_constraintVertical_bias="0.87" />
+
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -138,7 +114,7 @@
                 app:layout_constraintTop_toBottomOf="@id/workout3days">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/yoga"
+                    android:id="@+id/workoutSchedule"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_margin="10dp"
@@ -158,7 +134,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5.0dp"
-                            android:text="@string/yoga"
+                            android:text="Schedule workout session"
                             android:textColor="@color/white"
                             android:textSize="20sp"
                             android:textStyle="bold"
@@ -168,19 +144,7 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <Button
-                        android:id="@+id/yogabtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="@drawable/btn"
-                        android:text="@string/begin"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-                        app:layout_constraintVertical_bias="0.87" />
+
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -195,11 +159,11 @@
                 app:layout_constraintTop_toBottomOf="@id/workout3days">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/nutrition"
+                    android:id="@+id/contactUs"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/nutrition"
+                    android:background="@drawable/contactus"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -214,7 +178,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5.0dp"
-                            android:text="@string/nutrition"
+                            android:text="@string/contact_us"
                             android:textColor="@color/white"
                             android:textSize="20sp"
                             android:textStyle="bold"
@@ -224,18 +188,7 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <Button
-                        android:id="@+id/nutritionbtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="@drawable/btn"
-                        android:text="@string/begin"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintVertical_bias="0.87" />
+
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
