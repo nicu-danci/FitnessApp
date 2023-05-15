@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
 
         android:layout_marginTop="16dp"
-        android:text="Home Workout"
+        android:text="@string/fitness_app"
         android:textColor="#040303"
         android:textSize="30sp"
         android:textStyle="bold"
